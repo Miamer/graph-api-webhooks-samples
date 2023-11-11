@@ -12,6 +12,7 @@ var app = express();
 var xhub = require('express-x-hub');
 
 app.set('port', (process.env.PORT || 5000));
+console.log('PORT', process.env.PORT)
 app.listen(app.get('port'));
 
 app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
@@ -59,4 +60,5 @@ app.post('/instagram', function(req, res) {
   res.sendStatus(200);
 });
 
+console.log('server is starting')
 app.listen();
